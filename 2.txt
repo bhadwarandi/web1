@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Page Title</title>
+	</head>
+	<body>
+	    <h1 align=center>Validate USN</h1>
+	    <div class=form>
+		<form action="">
+		<p>
+			USN:<input type="text" name="USN"><br/>
+			<input type="button" value="Validate" onclick="func(USN)">
+		</p>
+	</form>
+	</div>
+	</body>
+</html>
+
+function func(USN)
+		{
+			var pattern1=/^[1-4][a-z,A-Z]{2}[0-9]{2}[a-z,A-Z]{2}[0-9]{3}$/	
+			if(!USN.value.match(pattern1)||USN.value.length==0)
+			{
+	            alert("Invalid USN!\nEnter a valid USN!")
+				return false
+			}
+            else
+                alert("USN valid")
+		}

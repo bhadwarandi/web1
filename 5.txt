@@ -1,0 +1,39 @@
+function bookFlight() {
+  return new Promise(function (resolve, reject) {
+    // Simulating asynchronous flight booking process
+    setTimeout(function () {
+      var isFlightBooked = true; // Assuming flight booking is successful
+      if (isFlightBooked) {
+        resolve("Flight booked successfully!");
+      } else {
+        reject("Flight booking failed!");
+      }
+    }, 2000); // Simulating a 2-second delay
+  });
+}
+
+function bookHotel() {
+  return new Promise(function (resolve, reject) {
+    // Simulating asynchronous hotel booking process
+    setTimeout(function () {
+      var isHotelBooked = true; // Assuming hotel booking is successful
+      if (isHotelBooked) {
+        resolve("Hotel booked successfully!");
+      } else {
+        reject("Hotel booking failed!");
+      }
+    }, 2000); // Simulating a 2-second delay
+  });
+}
+
+bookFlight()
+  .then(function (flightBookingStatus) {
+    console.log(flightBookingStatus);
+    return bookHotel();
+  })
+  .then(function (hotelBookingStatus) {
+    console.log(hotelBookingStatus);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
